@@ -1,0 +1,35 @@
+.menus {
+    flex: 1;
+    background: black;
+    border-right: 5px solid gray;
+    color: lightgray;
+    font-family: monospace;
+    font-size: x-large;
+    text-align: left;
+    position: relative;
+    padding-left: 5px;
+    padding-top: 10px;
+}
+
+.bodys {
+    flex: 3;
+}
+
+.title {
+    font-weight: bold;
+    position: relative;
+}
+
+.manu-body {
+    text-align: right;
+    padding-right: 20px;
+    border-top: 1px solid lightgray;
+    padding-top: 20px;
+    margin-top: 20px;
+    position: relative;
+    right: 10px;
+}
+
+.manu-body>div {
+    cursor: pointer;
+}

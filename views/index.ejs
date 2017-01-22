@@ -1,0 +1,109 @@
+<!DOCTYPE html >
+<html lang="en" ng-app="CFRD">
+<head>
+	<meta charset="UTF-8">
+	<title>CFRD STACK OVERFLOW</title>
+	<link rel="stylesheet" href="/css/default.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<script type="text/javascript" src="/javascripts/angula.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.js"></script>
+	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+
+</head>
+<body ng-controller="Index" ng-init="createNew = false">
+	<div class="main">
+		<div class="filter">
+			<div class="title_1" ng-class="chosedTopic[0]?'item-select':''" ng-click="choseTopic(1, $event)">
+				Customer
+			</div>
+			<div class="title_2" ng-class="chosedTopic[1]?'item-select':''" ng-click="choseTopic(2, $event)">
+				Status
+			</div>
+			<div class="title_3" ng-class="chosedTopic[2]?'item-select':''" ng-click="choseTopic(3, $event)">
+				Platform
+			</div>
+			<div class="title_4" ng-class="chosedTopic[3]?'item-select':''" ng-click="choseTopic(4, $event)">
+				Detail Tag
+			</div>
+
+			<div class="filter-body">
+				<div class="filter_1" ng-show="chosedTopic[0]">
+					<input type="text" class="form-control filter-input" ng-model="filter1" placeholder="Filter...">
+					<div class="tag" ng-repeat="tag in tags['0']|filter:filter1" ng-click="choseTag(tag, $event)">{{tag}}</div>
+				</div>
+				<div class="filter_2" ng-show="chosedTopic[1]">
+					<input type="text" class="form-control filter-input" ng-model="filter2" placeholder="Filter...">
+					<div class="tag" ng-repeat="tag in tags['1']|filter:filter2" ng-click="choseTag(tag, $event)">{{tag}}</div>
+				</div>
+				<div class="filter_3" ng-show="chosedTopic[2]">
+					<input type="text" class="form-control filter-input" ng-model="filter3" placeholder="Filter...">
+					<div class="tag" ng-repeat="tag in tags['2']|filter:filter3" ng-click="choseTag(tag, $event)">{{tag}}</div>
+				</div>
+				<div class="filter_4" ng-show="chosedTopic[3]">
+					<input type="text" class="form-control filter-input" ng-model="filter4" placeholder="Filter...">
+					<div class="tag" ng-repeat="tag in tags['3']|filter:filter4" ng-click="choseTag(tag, $event)">{{tag}}</div>
+				</div>
+			</div>
+			
+			<div class="create-new" ng-click="createNew=true">Create New Record</div>
+		</div>
+		<div class="result">
+			<div class="result-title">CFRD STACK OVERFLOW</div>
+			<div class="result-panel" ng-hide="createNew">
+				<table class="table table-bordered">
+					<thead>
+					    <tr>
+						    <td>Problem</td>
+						    <td>Solution</td>
+						    <td>Customer</td>
+						    <td>Status</td>
+						    <td>Platform</td>
+						    <td>Detail Tags</td>
+					    </tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="record in records">
+							<td>{{record.discription}}</td>
+							<td>{{record.solution}}</td>
+							<td>
+								<div class="tag" ng-repeat="tag in record.tags[0]">
+									{{tag}}
+								</div>
+							</td>
+							<td>
+								<div class="tag" ng-repeat="tag in record.tags[1]">
+									{{tag}}
+								</div>
+							</td>
+							<td>
+								<div class="tag" ng-repeat="tag in record.tags[2]">
+									{{tag}}
+								</div>
+							</td>
+							<td>
+								<div class="tag" ng-repeat="tag in record.tags[3]">
+									{{tag}}
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="new-panel" ng-show="createNew"> 
+				<div create-new-record class="full-div"></div>
+				<div class="confirm-btns">
+					<button type="submit" ng-class="isDisable?'disable':''" ng-click="submitRecord()" class="btn btn-primary">Submit</button>
+					<button type="submit" ng-click="createNew=false" class="btn">Back</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="message">
+		<div ng-repeat="message in messages">{{message}} <span class="message-delete" ng-click="remoteMessage(message)">X</span></div>
+	</div>
+</body>
+
+<script type="text/javascript" src="/javascripts/index.js"></script>
+<script type="text/javascript" src="/javascripts/newRecord.js"></script>
+</html>

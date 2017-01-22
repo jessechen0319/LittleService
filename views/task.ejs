@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="task">
+<head>
+	<meta charset="UTF-8">
+	<title>Task Management</title>
+	<link rel="stylesheet" href="/css/default.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="/css/task.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<script type="text/javascript" src="/javascripts/angula.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.js"></script>
+	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+</head>
+<body ng-controller="TaskController">
+	<div class="main">
+		
+		<div class="menus" >
+			<div class="title">Task Management</div>
+			<div class="manu-body" ng-init="menuCheck=[true, false, false]">
+				<div ng-click="menuCheck=[true, false, false]">Home</div>
+				<div ng-click="menuCheck=[false, true, false]">Create New</div>
+				<div ng-click="menuCheck=[false, false, true]">Report</div>
+			</div>
+		</div>
+		<div class="bodys" ng-show="menuCheck[0]">
+			jesse
+		</div>
+		<div class="bodys" ng-show="menuCheck[1]">
+			guoguo
+		</div>
+		<div class="bodys" ng-show="menuCheck[2]">
+			lisa
+		</div>
+	</div>
+	<input type="hidden" name="code" id="code" value="<%= code %>">
+</body>
+<script type="text/javascript" src="/javascripts/task.js"></script>
+</html>
+

@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="/css/create-record.css">
+<div class="creation_1 create-block">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Problem Description</h3>
+	  </div>
+	  <div class="panel-body">
+	    <textarea class="form-control" ng-model="discription" ng-init="discription=''" rows="7" id="comment"></textarea>
+	  </div>
+	</div>
+</div>
+<div class="creation_2 create-block">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Solution</h3>
+	  </div>
+	  <div class="panel-body">
+	    <textarea class="form-control" ng-model="solution" ng-init="solution=''" rows="7" id="comment"></textarea>
+	  </div>
+	</div>
+</div>
+<div class="creation_3 create-block">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Tag Identifier</h3>
+	  </div>
+	  <div class="panel-body">
+
+	  	<div class="input-group">
+	  		
+	  		<input type="text" class="form-control" ng-model="tempTag" ng-init="tempTag=''" placeholder="Input tags...">
+	  		<div class="input-group-btn">
+	  		        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">Add To... <span class="caret"></span></button>
+	  		        <ul class="dropdown-menu">
+	  		          <li><a href="#" ng-click="addTag(0)">Customer</a></li>
+	  		          <li><a href="#" ng-click="addTag(1)">Status</a></li>
+	  		          <li><a href="#" ng-click="addTag(2)">Platform</a></li>
+	  		          <li><a href="#" ng-click="addTag(3)">Detail Tags</a></li>
+	  		        </ul>
+	  		      </div>
+	  	</div>
+	  	<div class="tags-inputed">
+		  	<div class="tag-title" ng-show="showTagTitles[0]">
+		  		<div class="tag-title-title">Customer---</div>
+		  		<div class="tag-title-content">
+		  			<div class="tag-title-content-tag" ng-repeat="tag in addedTags[0]">
+		  				{{tag}}
+		  			</div>
+		  		</div>
+		  	</div>
+		  	<div class="tag-title" ng-show="showTagTitles[1]">
+		  		<div class="tag-title-title">Status---</div>
+		  		<div class="tag-title-content">
+		  			<div class="tag-title-content-tag" ng-repeat="tag in addedTags[1]">
+		  				{{tag}}
+		  			</div>
+		  		</div>
+		  	</div>
+		  	<div class="tag-title" ng-show="showTagTitles[2]">
+		  		<div class="tag-title-title">Platform---</div>
+		  		<div class="tag-title-content">
+		  			<div class="tag-title-content-tag" ng-repeat="tag in addedTags[2]">
+		  				{{tag}}
+		  			</div>
+		  		</div>
+		  	</div>
+		  	<div class="tag-title" ng-show="showTagTitles[3]">
+		  		<div class="tag-title-title">Detail Tags---</div>
+		  		<div class="tag-title-content">
+		  			<div class="tag-title-content-tag" ng-repeat="tag in addedTags[3]">
+		  				{{tag}}
+		  			</div>
+		  		</div>
+		  	</div>
+	  	</div>
+	  </div>
+	</div>
+</div>
+<div class="creation_4 create-block">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Attachments</h3>
+	  </div>
+	  <div class="panel-body">
+	    
+	  </div>
+	</div>
+</div>
