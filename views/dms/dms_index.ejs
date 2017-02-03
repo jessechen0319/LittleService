@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dms">
+<head>
+	<meta charset="UTF-8">
+	<title>Device Management System</title>
+	<link rel="stylesheet" href="/css/default.css">
+	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="/css/dms/index.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<script type="text/javascript" src="/javascripts/angula.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.js"></script>
+	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+</head>
+<body ng-controller="IndexController">
+	<div class="main">
+		
+		<div class="menus" >
+			<div class="title">Device Management System</div>
+			<div class="manu-body" ng-init="menuCheck=[true, false, false, false]">
+				<div ng-click="menuCheck=[true, false, false, false]">Home</div>
+				<div ng-click="menuCheck=[false, true, false, false]">Device Collect</div>
+				<div ng-click="menuCheck=[false, false, true, false]">Device Transfer</div>
+				<div ng-click="menuCheck=[false, false, true, false]">Report</div>
+			</div>
+		</div>
+		<div class="bodys" ng-show="menuCheck[0]">
+			<div dms-index></div>
+		</div>
+		<div class="bodys" ng-show="menuCheck[1]">
+			guoguo
+		</div>
+		<div class="bodys" ng-show="menuCheck[2]">
+			lisa
+		</div>
+	</div>
+
+	<div class="message">
+		<div ng-repeat="message in messages">{{message}} <span class="message-delete" ng-click="remoteMessage(message)">X</span></div>
+	</div>
+
+</body>
+<script type="text/javascript" src="/javascripts/dms/index.js"></script>
+<script type="text/javascript" src="/javascripts/dms/index_directive.js"></script>
+</html>
+

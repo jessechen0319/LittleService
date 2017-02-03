@@ -1,0 +1,38 @@
+body{
+    background: url(/imgs/dms/background.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.loginForm {
+    display: inline-block;
+    width: 500px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    position: relative;
+    top: 300px;
+    padding: 100px 20px;
+}
+
+.registerForm {
+    display: inline-block;
+    width: 500px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    position: relative;
+    top: 300px;
+    padding: 100px 20px;
+}
+
+.login-title {
+    position: absolute;
+    top: 10px;
+    font-size: 25px;
+    border-bottom: 10px solid rgba(251, 0, 0, 0.6);
+    left: 0;
+    right: 0;
+    padding-bottom:5px;
+}

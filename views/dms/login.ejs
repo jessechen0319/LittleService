@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="dms">
+<head>
+	<title>Login to AMD DMS System</title>
+	<link rel="stylesheet" type="text/css" href="/css/dms/login.css">
+	<link rel="stylesheet" href="/css/default.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<script type="text/javascript" src="/javascripts/angula.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.js"></script>
+	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+</head>
+<body ng-controller="LoginController">
+
+	<div class="loginForm">
+		<div class="login-title">Login To The System</div>
+		<input type="text" class="form-control" placeholder="User Name">
+		<br>
+		<input class="form-control" type="text" placeholder="Password">
+		<br>
+		<button class="btn btn-default">Submit</button>
+		<button class="btn btn-default" onclick="location.pathname='/dms/register'">Register</button>
+	</div>
+</body>
+<script type="text/javascript" src="/javascripts/dms/login.js"></script>
+</html>
