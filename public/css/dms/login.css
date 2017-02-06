@@ -36,3 +36,23 @@ body{
     right: 0;
     padding-bottom:5px;
 }
+
+.register-messages {
+    position: absolute;
+    top: 57px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    line-height: 40px;
+    background: black;
+    color: white;
+    display: none;
+}
+
+.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  top:-200px;
+  left: 200px;
+}

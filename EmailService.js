@@ -1,15 +1,22 @@
 var email = require("./node_modules/emailjs/email");
+var conf = require(__dirname+"/dms_service/ConfReaderService");
 var server 	= email.server.connect({
-   user:    "jesse_001@163.com", 
-   password:"4035535", 
-   host:    "smtp.163.com", 
+   user:    conf.user, 
+   password:conf.password, 
+   host:    conf.smtp, 
    ssl:     true
 });
  
 // send the message and get a callback with an error or details of the message that was sent 
-server.send({
-   text:    "i hope this works", 
-   from:    "jesse_001@163.com", 
-   to:      "48510049@qq.com",
-   subject: "testing emailjs"
-}, function(err) { console.log(err); });
+
+
+function sendSimpleMessage(reciver, message, callback){
+	server.send({
+	   text:    message, 
+	   from:    conf.user, 
+	   to:      reciver,
+	   subject: "AMD DMS Notification Message"
+	}, function(err) { callback(err); });
+}
+
+module.exports.sendSimpleMessage = sendSimpleMessage;

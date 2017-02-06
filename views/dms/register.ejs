@@ -8,20 +8,32 @@
 	<script type="text/javascript" src="/javascripts/angula.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.js"></script>
 	<script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/javascripts/angular-animate.min.js"></script>
 </head>
 <body ng-controller="LoginController">
 
 	<div class="registerForm">
 		<div class="login-title">Register To The System</div>
-		<input type="text" class="form-control register-email" placeholder="Email">
+		<div class="register-messages">{{registerMessage}}</div>
+		<div class="input-email">
+			<input type="text" class="form-control register-email" ng-model="email" placeholder="Email">
+		</div>
 		<br>
 		<button class="btn btn-default" ng-click="getPingCode($event)">{{loginButtonText}}</button>
 		<br>
 		<br>
-		<input class="form-control" type="text" maxlength="6" placeholder="Ping Code">
+		<input class="form-control" ng-model="validationCode" ng-init="validationCode=''" type="text" maxlength="6" placeholder="Ping Code">
 		<br>
-		<button class="btn btn-default">Validate</button>
-		<button class="btn btn-default">Register</button>
+		<button class="btn btn-default" ng-click="validateCode()">Validate</button>
+		<br>
+		<br>
+		<div ng-hide="validationCodeOK">
+			<input class="form-control" type="password" minlength="7" maxlength="16" placeholder="Password">
+			<br>
+			<input class="form-control" type="password" minlength="7" maxlength="16" placeholder="Confirm Password">
+			<br>
+			<button class="btn btn-default">Submit</button>
+		</div>
 	</div>
 </body>
 <script type="text/javascript" src="/javascripts/dms/login.js"></script>
