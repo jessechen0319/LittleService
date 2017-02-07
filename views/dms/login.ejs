@@ -13,11 +13,12 @@
 
 	<div class="loginForm">
 		<div class="login-title">Login To The System</div>
-		<input type="text" class="form-control" placeholder="User Name">
+		<div class="register-messages">{{registerMessage}}</div>
+		<input type="text" ng-model="user" class="form-control" placeholder="User Name">
 		<br>
-		<input class="form-control" type="text" placeholder="Password">
+		<input class="form-control" ng-model="pass" type="password" placeholder="Password">
 		<br>
-		<button class="btn btn-default">Submit</button>
+		<button class="btn btn-default" ng-click="submitLogin()">Submit</button>
 		<button class="btn btn-default" onclick="location.pathname='/dms/register'">Register</button>
 	</div>
 </body>

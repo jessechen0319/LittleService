@@ -27,12 +27,12 @@
 		<button class="btn btn-default" ng-click="validateCode()">Validate</button>
 		<br>
 		<br>
-		<div ng-hide="validationCodeOK">
-			<input class="form-control" type="password" minlength="7" maxlength="16" placeholder="Password">
+		<div ng-show="validationCodeOK">
+			<input class="form-control pass1" ng-model="pass1" type="password" minlength="7" maxlength="16" placeholder="Password">
 			<br>
-			<input class="form-control" type="password" minlength="7" maxlength="16" placeholder="Confirm Password">
+			<input class="form-control pass2" ng-model="pass2" type="password" minlength="7" maxlength="16" placeholder="Confirm Password">
 			<br>
-			<button class="btn btn-default">Submit</button>
+			<button class="btn btn-default" ng-click="submitRegister()">Submit</button>
 		</div>
 	</div>
 </body>

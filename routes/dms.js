@@ -16,6 +16,31 @@ router.get('/register', function(req, res, next) {
 	res.render('dms/register');
 });
 
+router.get('/loginConfirm', function(req, res, next) {
+	var user = req.query.user;
+	var pass = req.query.pass;
+	var db = dbService.readDB();
+	var isUserOk = db.users.some(function(item){
+		return item.mail==user&&item.pass==pass
+	});
+	res.statusCode=200;
+	res.end(JSON.stringify({"validate":isUserOk}));
+});
+
+router.get('/registerConfirm', function(req, res, next) {
+	var mail = req.query.mail;
+	var pass = req.query.pass;
+	if(!mail||mail.trim()==''||!pass||pass.trim()==''){
+		throw new Error(`mail and pass are not correct, please check.`);
+	} else {
+		var db = dbService.readDB();
+		db.users.push({'mail':mail, 'pass':pass, 'id':db.users.length, 'status':'active'});
+		dbService.writeDB(db);
+		res.statusCode=200;
+		res.end();
+	}
+});
+
 router.get('/registerValicationCode', function(req, res, next) {
 	var mail = req.query.mail;
 	if(!mail||mail.trim()==''){
