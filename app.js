@@ -4,12 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var dms = require('./routes/dms');
 
 var app = express();
+
+app.use(session({
+  secret: 'recommand 128 bytes random string', // 建议使用 128 个字符的随机字符串
+  cookie: { maxAge: 60 * 1000 }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +28,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(function (req, res, next){
+
+	var tx = new RegExp("^/dms");
+	if(tx.test(req.originalUrl)&&req.originalUrl!='/dms'){
+		if(!req.session.user){
+			res.redirect('/dms');
+		}
+	}else{
+		next();
+	}
+});
 
 app.use('/', index);
 app.use('/users', users);
@@ -44,5 +61,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

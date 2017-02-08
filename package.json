@@ -14,6 +14,7 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
     "jsonfile": "~2.4.0",
-    "emailjs": "latest"
+    "emailjs": "latest",
+    "express-session": "latest"
   }
 }

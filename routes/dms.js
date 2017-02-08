@@ -16,13 +16,18 @@ router.get('/register', function(req, res, next) {
 	res.render('dms/register');
 });
 
+
 router.get('/loginConfirm', function(req, res, next) {
+
 	var user = req.query.user;
 	var pass = req.query.pass;
 	var db = dbService.readDB();
 	var isUserOk = db.users.some(function(item){
 		return item.mail==user&&item.pass==pass
 	});
+	if(isUserOk){
+		req.session.user={'mail':user, 'pass':pass};
+	}
 	res.statusCode=200;
 	res.end(JSON.stringify({"validate":isUserOk}));
 });
