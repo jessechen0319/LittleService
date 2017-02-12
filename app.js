@@ -31,7 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next){
 
 	var tx = new RegExp("^/dms");
-	if(tx.test(req.originalUrl)&&req.originalUrl!='/dms'){
+  let isLogin = req.originalUrl.indexOf('loginConfirm') || req.originalUrl =='/dms';
+	if(tx.test(req.originalUrl)&&!isLogin){
 		if(!req.session.user){
 			res.redirect('/dms');
 		}

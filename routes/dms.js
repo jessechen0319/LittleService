@@ -16,6 +16,10 @@ router.get('/register', function(req, res, next) {
 	res.render('dms/register');
 });
 
+router.get('/mainPage', function(req, res, next) {
+	res.render('dms/main');
+});
+
 
 router.get('/loginConfirm', function(req, res, next) {
 

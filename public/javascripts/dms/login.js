@@ -104,6 +104,7 @@ app.controller('LoginController', function($scope, $rootScope, $http) {
 			).then(function(res){
 				if(res.data.validate){
 					showMessages('Login successfully');
+					location.pathname='/dms/mainPage';
 				}else{
 					showMessages('Login failed, please check your user name or password.');
 				}
