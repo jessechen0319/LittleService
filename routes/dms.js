@@ -3,6 +3,7 @@ var router = express.Router();
 var util = require('../dms_service/Util');
 var mailService = require('../EmailService');
 var dbService = require('../dms_service/DBService');
+var conf = require('../dms_service/ConfReaderService');
 
 router.get('/', function(req, res, next) {
 	res.render('dms/login');
@@ -17,7 +18,7 @@ router.get('/register', function(req, res, next) {
 });
 
 router.get('/mainPage', function(req, res, next) {
-	res.render('dms/main');
+	res.render('dms/main', {'columnDefine':util.getColumnAndConf(conf)});
 });
 
 
